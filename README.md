@@ -71,6 +71,7 @@ Refresh the `/products` page and it should work the same as before, but now we'v
 While we're modifying our view lets add the ability to get these products in JSON form. Open up the products_controller.rb again and add this into your index method:
 
     respond_to do |format|
+      format.html # show default view
       format.json {render :json => @products}
     end
 
