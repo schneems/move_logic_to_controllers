@@ -165,9 +165,9 @@ Save and commit the results to GIT.
 
 We'll start out by adding a `new` action to our products controller. Open up `app/controllers/products_controller.rb` and add this code:
 
-  def new
-    @product = Product.new
-  end
+    def new
+      @product = Product.new
+    end
 
 Here we're adding an instance variable `@product` and assigning it to a new product instance. This new product instance hasn't been saved to our database and doesn't have any name or price associated with it. We will use it while building our form. Now open up the view `app/views/products/new.html.erb` and remove the form and we will replace it with with rails form helper:
 
