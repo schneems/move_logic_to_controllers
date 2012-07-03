@@ -1,14 +1,4 @@
 <h2>Let's add new products!</h2>
+<%= render :partial => 'form' %>
 
-<form method='post' action='/products' >
-  <label>Name of your product</label><br>
-  <input name="product[name]" size="30" type="text">
-
-  <br />
-  <label>Price</label><br>
-  <input name="product[price]" type="number">
-
-  <br />
-  <input type="submit" value="Create Product">
-</form>
 
