@@ -64,7 +64,7 @@ We then need to modify the view to use the new `@products` instance variable cha
 
 to this line:
 
-   <% @products.each do |product| %>
+    <% @products.each do |product| %>
 
 Refresh the `/products` page and it should work the same as before, but now we've got all of our SQL queries safely out of the view.
 
@@ -118,7 +118,7 @@ Replace it with the html:
 
     <%= @product.name %> added to the website, it costs: $<%= @product.price %>
 
-Now open up the `products_controller.rb` and add the `create` method with this logic in it.
+Now open up the `products_controller.rb` and add the `create` method with this logic in it after the index but before the last `end` in the file
 
 
     def create
@@ -134,6 +134,7 @@ Now open up the `products_controller.rb` and add the `create` method with this l
         end
       end
     end
+
 
 You'll notice that the logic looks very similar, we're creating a product out of the values we got from the `params` hash. We then try to save the product by calling `@product.save`. If the product object passes all validations and saves to the database successfully then we will render the create view. Othewise we want to re-render the product form, and give our users the ability to re-enter data.
 
@@ -202,7 +203,7 @@ Into this form builder we are passing an instance variable `@product` that we cr
       @product = Product.new(:name => 'sneakers')
     end
 
-Now refresh the page and you will see that the `name` field is pre populated with whatever name you entered into the `Product.new` in the controller. Go ahead and try changing the name and refreshing the page, you should see whatever you enter in our `products_controller.rb`. The same goes for price, add a price:
+Now go back to [http://localhost:3000/products/new](http://localhost:3000/products/new) and you will see that the `name` field is pre populated with whatever name you entered into the `Product.new` in the controller. Go ahead and try changing the name and refreshing the page, you should see whatever you enter in our `products_controller.rb`. The same goes for price, add a price:
 
     def new
       @product = Product.new(:name => 'sneakers', :price => 10)
