@@ -1,8 +1,8 @@
 <h2> Products in the market </h2>
-<% lots_of_products = Product.includes(:user).all %>
+
 
 <ul>
-  <% lots_of_products.each do |product| %>
+  <% @products.each do |product| %>
     <li>
       Product Name: "<%= product.name %>" costs $<%= product.price %>  |  
 	  Sold by <%= product.user.name if product.user.present? %>    
