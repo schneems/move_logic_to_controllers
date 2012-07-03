@@ -1,10 +1,22 @@
 <h2> Products in the market </h2>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      Product Name: "<%= product.name %>" costs $<%= product.price %>  |  
-	  Sold by <%= product.user.name if product.user.present? %>    
-    </li>
-  <% end %>
-</ul>
+<table>
+
+	
+  		<% @products.each do |product| %>
+  		<tr>
+		<td><%= product.id %> &nbsp; </td>
+       	<td><%= product.name %> </td>
+       	<td>$<%= product.price %> &nbsp; </td>
+       	<td><%= product.user.name if product.user.present? %> </td>
+		</tr>
+     	<% end %>
+ 	
+    </table>
+
+   
+   
+	
+ 
+
+
