@@ -239,7 +239,7 @@ It's great that rails does this logic for us and even highlights our fields with
 
     <% if @product.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
         <ul>
         <% @product.errors.full_messages.each do |msg| %>
