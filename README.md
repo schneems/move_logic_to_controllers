@@ -292,7 +292,7 @@ A partial in Rails is a re-useable view piece that can be used by multiple diffe
 
     <% if @product.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
         <ul>
         <% @product.errors.full_messages.each do |msg| %>
@@ -427,11 +427,11 @@ Here we look up a product with a given id from `params[:id]` then we update all 
 
     {:name => 'sneakers', :price => 10}
 
-We can pass it directly into our update_attributes method and it will attempt to change the `:name` and `:price` of our `@product`. If that is successful we will redirect_to the `@product` otherwise we will show the edit action again. This follows a similar pattern to when we were creating products with the new view and the create action. There are two things here we haven't seen before, the `redirect_to @product` and `:notice => 'User was successfully updated.'` Lets take a look at each of them.
+We can pass it directly into our update_attributes method and it will attempt to change the `:name` and `:price` of our `@product`. If that is successful we will redirect_to the `@product` otherwise we will show the edit action again. This follows a similar pattern to when we were creating products with the new view and the create action. There are two things here we haven't seen before, the `redirect_to @product` and `:notice => 'Product was successfully updated.'` Lets take a look at each of them.
 
 Lets look at the first one, `redirect_to @product`. Remember when we used our `form_for(@product)` and Rails was smart enough to figure out that we wanted an update form for a `@product` that was already in the database, and a create form for an `@product` that was brand new. In a similar way `redirect_to` is smart enough to know that when we are redirecting to a `@product` that has been saved to the database, we likely want to show that product. So all together `redirect_to @product` will send our user to the `app/views/products/show.html.erb` view when the update is successful. We could do the same thing by manually building our url `redirect_to "/products/#{@product.id}" but hard coding your urls is considered bad form. (It makes it harder to change your app later on down the road).
 
-The next part `:notice => 'User was successfully updated.'` is using something that rails calls "flash", essent
+The next part `:notice => 'Product was successfully updated.'` is using something that rails calls "flash", essent
 this is a tool to pass on one time messages to the users of your application. To show this to your users we'll have to add some code to our layout, add this to `app/views/layouts/application.html.erb` above the yield:
 
 
@@ -479,4 +479,3 @@ Congrats, you've successfully made a way to Create Read Update & Delete a produc
 If you take a look at the code in the users_controller.rb  you should be able to understand most of what is going on. If not, make a note and we can talk about it in class. You should also be able to look through the views in `app/views/users` and understand most of what is going on as well.
 
 At this point we've covered the foundation of using Rails, from designing a database table, querying that table with a Model building Views with erb, controlling what views we see with Controllers and using Routes to map that all to urls that every browser can understand. There is still plenty to learn, but you now have the building blocks in your hands to start building the next facebook or instagram. The rest is just details :)
-
