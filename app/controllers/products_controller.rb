@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  def new
+    @product = Product.new
+  end
   def index
     @products = Product.includes(:user).all
     respond_to do |format|
